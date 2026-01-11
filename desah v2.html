@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pesan Spesial dari Sahabat 💕</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+        
+        /* BY VOID BRANDING */
+        .void-brand {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 64, 129, 0.9);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(255, 64, 129, 0.3);
+            z-index: 1000;
+            border: 2px solid white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .void-brand:hover {
+            background: rgba(255, 64, 129, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 64, 129, 0.4);
+        }
+        
+        .void-logo {
+            font-size: 14px;
+            animation: spin 4s linear infinite;
+        }
+        
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+        
+        .card {
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
+            max-width: 500px;
+            width: 100%;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+            border: 3px solid #ff69b4;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
+            color: white;
+            padding: 35px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: float 20s linear infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-20px, -20px) rotate(360deg); }
+        }
+        
+        .profile {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin: 0 auto 20px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            color: #ff6b9d;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.3);
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .subtitle {
+            opacity: 0.95;
+            font-size: 16px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .content {
+            padding: 35px 30px;
+        }
+        
+        .message {
+            background: linear-gradient(135deg, #fff5f7 0%, #ffeef2 100%);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 5px solid #ff6b9d;
+            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.1);
+        }
+        
+        .message p {
+            color: #333;
+            line-height: 1.7;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        
+        .message strong {
+            color: #ff4081;
+        }
+        
+        .continue-btn {
+            background: linear-gradient(135deg, #ff4081 0%, #ff80ab 100%);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 20px;
+            font-size: 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 10px 25px rgba(255, 64, 129, 0.3);
+        }
+        
+        .continue-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 64, 129, 0.4);
+        }
+        
+        .continue-btn:active {
+            transform: translateY(0);
+        }
+        
+        .friend-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .friend {
+            text-align: center;
+            width: 70px;
+        }
+        
+        .friend-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcdd2 0%, #f8bbd9 100%);
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #ff4081;
+            font-size: 20px;
+            border: 2px solid #ff4081;
+            transition: transform 0.3s;
+        }
+        
+        .friend:hover .friend-avatar {
+            transform: scale(1.1);
+        }
+        
+        .friend-name {
+            font-size: 13px;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 25px;
+            color: #888;
+            font-size: 14px;
+            border-top: 1px solid #ffeef2;
+            background: #fff9fb;
+            position: relative;
+        }
+        
+        /* BY VOID WATERMARK DI FOOTER */
+        .void-watermark {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            font-size: 12px;
+            color: #ff80ab;
+            font-weight: bold;
+            opacity: 0.7;
+        }
+        
+        .hidden-audio {
+            display: none;
+        }
+        
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px 30px;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .success-icon {
+            font-size: 52px;
+            color: #ff4081;
+            margin-bottom: 25px;
+            animation: bounce 1s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: #ff4081;
+            opacity: 0;
+            animation: fall linear forwards;
+        }
+        
+        @keyframes fall {
+            to {
+                top: 100%;
+                opacity: 0.5;
+            }
+        }
+        
+        /* BY VOID SIGNATURE DI HASIL */
+        .void-signature {
+            margin-top: 25px;
+            color: #ff4081;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- BY VOID BRANDING DI POJOK KANAN BAWAH -->
+<div class="void-brand">
+    <span class="void-logo">🌀</span>
+    BY VOID
+</div>
+
+<!-- Hearts Animation -->
+<div class="hearts" id="hearts"></div>
+
+<!-- Main Card -->
+<div class="card" id="mainCard">
+    <div class="header">
+        <div class="profile">💝</div>
+        <h1>Pesan Spesial dari Sahabat 💕</h1>
+        <div class="subtitle">Dari teman-teman terdekatmu</div>
+    </div>
+    
+    <div class="content">
+        <div class="message">
+            <p><strong>Hai Sahabat! 👋</strong></p>
+            <p>Kami buat halaman spesial ini khusus untuk kamu! Kami sudah mengumpulkan kenangan dan pesan dari semua orang.</p>
+            <p>Klik tombol di bawah untuk membuka pesan kejutanmu! Ada sesuatu yang lucu menantimu 😉</p>
+        </div>
+        
+        <button class="continue-btn" onclick="bukaKejutan()">
+            <span>🎀 Buka Kejutanku</span>
+            <span>✨</span>
+        </button>
+        
+        <div class="friend-list">
+            <div class="friend">
+                <div class="friend-avatar">A</div>
+                <div class="friend-name">Ayu</div>
+            </div>
+            <div class="friend">
+                <div class="friend-avatar">B</div>
+                <div class="friend-name">Budi</div>
+            </div>
+            <div class="friend">
+                <div class="friend-avatar">C</div>
+                <div class="friend-name">Citra</div>
+            </div>
+            <div class="friend">
+                <div class="friend-avatar">D</div>
+                <div class="friend-name">Doni</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        Dibuat dengan 💖 oleh sahabat-sahabatmu
+        <div class="void-watermark">🄱🅈 🅅🄾🄸🄳</div>
+    </div>
+</div>
+
+<!-- Success Card -->
+<div class="card" id="successCard" style="display: none;">
+    <div class="content">
+        <div class="success-message">
+            <div class="success-icon">🎊</div>
+            <h1 style="color: #ff4081; margin-bottom: 20px; font-size: 32px;">Kamu Kena Prank! 😂</h1>
+            <p style="color: #666; margin-bottom: 25px; line-height: 1.7; font-size: 17px;">
+                Hahaha! Kita tahu kamu akan mengkliknya!<br>
+                Ini adalah prank kecil dari kami, sahabat! 😝
+            </p>
+            <p style="color: #ff6b9d; font-weight: bold; margin: 25px 0; font-size: 20px; background: #fff5f7; padding: 15px; border-radius: 15px;">
+                💖 Kamu baru saja di-prank oleh sahabatmu! 💖
+            </p>
+            <button class="continue-btn" onclick="location.reload()" style="background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%); margin-top: 20px;">
+                <span>😆 Coba Lagi?</span>
+            </button>
+            
+            <!-- BY VOID SIGNATURE DI HASIL -->
+            <div class="void-signature">
+                🌀 A VOID PRODUCTION 🌀
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Audio Element - Hidden -->
+<audio id="prankAudio" preload="auto" loop class="hidden-audio">
+    <source src="https://files.catbox.moe/ilsmpu.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+let audioPlayed = false;
+
+// Create floating hearts
+function createHearts() {
+    const heartsContainer = document.getElementById('hearts');
+    for (let i = 0; i < 15; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = Math.random() * 100 + 'vh';
+        heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        heart.style.animationDelay = Math.random() * 2 + 's';
+        heartsContainer.appendChild(heart);
+    }
+}
+
+// Main function to reveal surprise
+function bukaKejutan() {
+    if (audioPlayed) return;
+    audioPlayed = true;
+    
+    // Create more hearts when button clicked
+    createHearts();
+    
+    // Get audio element
+    const audio = document.getElementById('prankAudio');
+    
+    // Set volume to max
+    audio.volume = 1.0;
+    
+    // Try to play audio
+    const playPromise = audio.play();
+    
+    if (playPromise !== undefined) {
+        playPromise.then(() => {
+            // Audio playing successfully
+            tampilkanPesanSukses();
+            
+            // Force volume to stay at max
+            setInterval(() => {
+                audio.volume = 1.0;
+                if (audio.paused) audio.play();
+            }, 1000);
+            
+        }).catch(error => {
+            // If autoplay blocked, show instruction
+            document.getElementById('mainCard').innerHTML = `
+                <div class="content" style="text-align: center; padding: 50px 30px;">
+                    <div class="profile" style="background: #ffeef2; color: #ff4081;">🎵</div>
+                    <h2 style="color: #ff4081; margin: 20px 0;">Ketuk untuk Melanjutkan 👇</h2>
+                    <p style="color: #666; margin: 20px 0; line-height: 1.6;">
+                        Perangkatmu membutuhkan satu ketukan lagi untuk memutar kejutan!
+                    </p>
+                    <div style="width: 120px; height: 120px; background: linear-gradient(135deg, #ff4081 0%, #ff80ab 100%); border-radius: 50%; margin: 30px auto; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px; cursor: pointer; box-shadow: 0 15px 35px rgba(255, 64, 129, 0.4);" onclick="putarAudioLangsung()">
+                        ▶️
+                    </div>
+                    <p style="color: #ff6b9d; margin-top: 20px; font-weight: 500;">
+                        Jangan lupa nyalakan volume! 🔊
+                    </p>
+                </div>
+            `;
+        });
+    }
+}
+
+function putarAudioLangsung() {
+    const audio = document.getElementById('prankAudio');
+    audio.volume = 1.0;
+    audio.play();
+    tampilkanPesanSukses();
+}
+
+function tampilkanPesanSukses() {
+    // Hide main card
+    document.getElementById('mainCard').style.display = 'none';
+    
+    // Show success card
+    document.getElementById('successCard').style.display = 'block';
+    
+    // Change title
+    document.title = "😂 Kamu Kena Prank! | BY VOID";
+    
+    // Create more hearts
+    createHearts();
+    
+    // Update void branding position
+    document.querySelector('.void-brand').style.bottom = '50%';
+    document.querySelector('.void-brand').style.right = '50%';
+    document.querySelector('.void-brand').style.transform = 'translate(50%, 50%)';
+    document.querySelector('.void-brand').style.background = 'rgba(255, 64, 129, 1)';
+    document.querySelector('.void-brand').innerHTML = '<span class="void-logo">🌀</span> VOID PRANK SUCCESS!';
+}
+
+// Auto-trigger after 30 seconds if button not clicked
+setTimeout(() => {
+    if (!audioPlayed) {
+        document.querySelector('.continue-btn').innerHTML = '<span>⏰ Waktu hampir habis!</span><span>🎀</span>';
+        document.querySelector('.continue-btn').style.background = 'linear-gradient(135deg, #ff9966 0%, #ff6b9d 100%)';
+    }
+}, 30000);
+
+// Initial hearts creation
+createHearts();
+
+// Add confetti effect on click
+document.querySelector('.continue-btn').addEventListener('click', function() {
+    for(let i = 0; i < 10; i++) {
+        setTimeout(() => {
+            createHearts();
+        }, i * 100);
+    }
+});
+
+// Void branding animation
+setInterval(() => {
+    const voidLogo = document.querySelector('.void-logo');
+    voidLogo.style.transform = 'scale(1.2)';
+    setTimeout(() => {
+        voidLogo.style.transform = 'scale(1)';
+    }, 200);
+}, 2000);
+</script>
+
+</body>
+</html>
