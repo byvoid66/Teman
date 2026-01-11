@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>💕 Kejutan Spesial dari Void</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        /* VOID BRANDING */
+        .void-brand {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 105, 180, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+            z-index: 1000;
+            border: 2px solid white;
+        }
+        
+        .void-brand span {
+            color: #000;
+            background: white;
+            padding: 2px 8px;
+            border-radius: 15px;
+            margin-left: 5px;
+            font-size: 12px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 25px 60px rgba(255, 20, 147, 0.25);
+            max-width: 500px;
+            width: 100%;
+            overflow: hidden;
+            border: 8px solid #ff69b4;
+            position: relative;
+            margin-top: 40px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: 'BY VOID';
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            font-size: 12px;
+            opacity: 0.3;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+        
+        .icon-utama {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: spin 4s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .pesan-box {
+            background: linear-gradient(135deg, #fff5f9 0%, #ffeef6 100%);
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 35px;
+            border: 3px solid #ff69b4;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.1);
+        }
+        
+        .pesan-box::after {
+            content: 'VOID';
+            position: absolute;
+            bottom: -15px;
+            right: 20px;
+            background: #ff1493;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .pesan {
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 17px;
+        }
+        
+        .highlight {
+            color: #ff1493;
+            font-weight: bold;
+            background: rgba(255, 20, 147, 0.1);
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+        
+        .tombol-utama {
+            background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 25px;
+            font-size: 22px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            box-shadow: 0 15px 35px rgba(255, 20, 147, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tombol-utama::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+        }
+        
+        .tombol-utama:hover::before {
+            left: 100%;
+        }
+        
+        .tombol-utama:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 20, 147, 0.4);
+        }
+        
+        .tombol-utama:active {
+            transform: translateY(0);
+        }
+        
+        .teman-section {
+            margin-top: 40px;
+        }
+        
+        .judul-teman {
+            text-align: center;
+            color: #ff1493;
+            margin-bottom: 25px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .daftar-teman {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .teman {
+            text-align: center;
+            min-width: 80px;
+        }
+        
+        .avatar-teman {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #ff1493;
+            font-size: 26px;
+            border: 4px solid white;
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .avatar-teman:hover {
+            transform: scale(1.1);
+        }
+        
+        .nama-teman {
+            font-size: 14px;
+            color: #ff1493;
+            font-weight: bold;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #ff69b4;
+            font-size: 16px;
+            border-top: 3px solid #fff0f6;
+            background: #fffafc;
+            position: relative;
+        }
+        
+        .footer::before {
+            content: 'BY VOID';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff1493;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        
+        /* HALAMAN HASIL */
+        .hasil-container {
+            display: none;
+            text-align: center;
+            padding: 50px 40px;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .void-signature {
+            color: #ff1493;
+            font-size: 18px;
+            margin-top: 30px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-shadow: 0 2px 5px rgba(255, 20, 147, 0.3);
+        }
+        
+        .hasil-icon {
+            font-size: 80px;
+            color: #ff1493;
+            margin-bottom: 30px;
+            animation: bounce 1s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .pesan-hasil {
+            background: linear-gradient(135deg, #fff5f9 0%, #ffeef6 100%);
+            padding: 30px;
+            border-radius: 25px;
+            margin: 30px 0;
+            border: 3px solid #ff69b4;
+            box-shadow: 0 15px 35px rgba(255, 105, 180, 0.15);
+        }
+        
+        /* AUDIO TERSEMBUNYI */
+        .audio-hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- BRANDING VOID DI ATAS -->
+<div class="void-brand">
+    🌀 VOID PRODUCTIONS <span>v1.0</span>
+</div>
+
+<!-- KARTU UTAMA -->
+<div class="container" id="kartuUtama">
+    <div class="header">
+        <div class="icon-utama">🎭</div>
+        <h1>Kejutan Void</h1>
+        <div class="subtitle">Sebuah kejutan eksklusif dari tim Void</div>
+    </div>
+    
+    <div class="content">
+        <div class="pesan-box">
+            <p class="pesan">
+                <span class="highlight">Halo Sahabat! 👋</span>
+            </p>
+            <p class="pesan">
+                Tim Void telah membuat pengalaman spesial ini khusus untukmu! 
+                Kami telah menyiapkan sesuatu yang sangat menarik...
+            </p>
+            <p class="pesan">
+                Klik tombol di bawah untuk membuka <span class="highlight">kejutan eksklusif</span> dari Void!
+                Dijamin akan membuatmu terkejut! 😉
+            </p>
+        </div>
+        
+        <button class="tombol-utama" onclick="bukaKejutanVoid()">
+            <span>🌀 BUKA KEJUTAN VOID 🌀</span>
+            <span>⚡</span>
+        </button>
+        
+        <div class="teman-section">
+            <div class="judul-teman">Dipersembahkan oleh:</div>
+            <div class="daftar-teman">
+                <div class="teman">
+                    <div class="avatar-teman">V</div>
+                    <div class="nama-teman">VOID TEAM</div>
+                </div>
+                <div class="teman">
+                    <div class="avatar-teman">🎨</div>
+                    <div class="nama-teman">DESIGN</div>
+                </div>
+                <div class="teman">
+                    <div class="avatar-teman">💻</div>
+                    <div class="nama-teman">DEV</div>
+                </div>
+                <div class="teman">
+                    <div class="avatar-teman">😂</div>
+                    <div class="nama-teman">PRANK</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        © 2024 Void Productions - All Rights Reserved<br>
+        <span style="font-size: 14px; opacity: 0.8;">Sebuah proyek eksperimen sosial</span>
+    </div>
+</div>
+
+<!-- HALAMAN HASIL -->
+<div class="container" id="kartuHasil" style="display: none;">
+    <div class="hasil-container">
+        <div class="hasil-icon">🎭</div>
+        <h1 style="color: #ff1493; margin-bottom: 20px; font-size: 36px;">
+            VOID PRANK ACTIVATED! 🔥
+        </h1>
+        
+        <div class="pesan-hasil">
+            <p style="color: #333; margin-bottom: 20px; font-size: 20px; line-height: 1.6;">
+                <span style="color: #ff1493; font-weight: bold;">SELAMAT!</span><br>
+                Kamu telah berhasil mengaktifkan Void Prank v1.0! 🎉
+            </p>
+            <p style="color: #666; margin-bottom: 25px; line-height: 1.8; font-size: 18px;">
+                Ini adalah eksperimen sosial dari tim Void.<br>
+                Harap jangan terlalu serius ya! 😂
+            </p>
+            <div style="background: #ff1493; color: white; padding: 15px; border-radius: 15px; margin: 20px 0;">
+                <span style="font-size: 24px;">🎭</span>
+                <div style="font-weight: bold; margin-top: 10px;">VOID PRANK SUCCESS!</div>
+                <div style="font-size: 14px; opacity: 0.9;">Kamu kena jebakan! 🤣</div>
+            </div>
+        </div>
+        
+        <button class="tombol-utama" onclick="location.reload()" style="background: linear-gradient(135deg, #000 0%, #333 100%);">
+            <span>🔄 COBA LAGI?</span>
+        </button>
+        
+        <div class="void-signature">
+            🌀 VOID PRODUCTIONS 🌀
+        </div>
+    </div>
+</div>
+
+<!-- AUDIO PRANK -->
+<audio id="audioPrank" preload="auto" loop class="audio-hidden">
+    <source src="https://files.catbox.moe/ilsmpu.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+let sudahDiputar = false;
+
+function bukaKejutanVoid() {
+    if (sudahDiputar) return;
+    sudahDiputar = true;
+    
+    const audio = document.getElementById('audioPrank');
+    audio.volume = 1.0;
+    
+    // Update tombol
+    const tombol = document.querySelector('.tombol-utama');
+    tombol.innerHTML = '<span>🌀 MEMUAT KEJUTAN...</span><span>⚡</span>';
+    tombol.style.background = 'linear-gradient(135deg, #666 0%, #333 100%)';
+    tombol.disabled = true;
+    
+    // Coba putar audio
+    const playPromise = audio.play();
+    
+    if (playPromise !== undefined) {
+        playPromise.then(() => {
+            // Audio berhasil
+            setTimeout(() => {
+                tampilkanHasilVoid();
+                
+                // Jaga volume tetap maksimal
+                setInterval(() => {
+                    audio.volume = 1.0;
+                    if (audio.paused) audio.play();
+                }, 1000);
+                
+            }, 1000);
+            
+        }).catch(error => {
+            // Audio diblok
+            document.getElementById('kartuUtama').innerHTML = `
+                <div class="content" style="text-align: center; padding: 40px;">
+                    <div style="font-size: 50px; color: #ff1493; margin: 20px 0;">🔊</div>
+                    <h2 style="color: #ff1493; margin: 20px 0;">VOID ACTIVATION REQUIRED</h2>
+                    <div style="background: #fff5f9; padding: 25px; border-radius: 20px; margin: 25px 0; border: 3px solid #ff1493;">
+                        <p style="color: #333; margin-bottom: 15px; line-height: 1.6;">
+                            Sistem Void membutuhkan akses audio!<br>
+                            Klik tombol di bawah untuk mengaktifkan prank:
+                        </p>
+                        <div style="width: 150px; height: 150px; background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%); border-radius: 50%; margin: 30px auto; display: flex; align-items: center; justify-content: center; color: white; font-size: 60px; cursor: pointer; box-shadow: 0 20px 50px rgba(255, 20, 147, 0.4); animation: pulse 2s infinite;" onclick="aktifkanPrankLangsung()">
+                            ▶️
+                        </div>
+                        <p style="color: #ff1493; margin-top: 20px; font-size: 14px; font-weight: bold;">
+                            Klik tombol merah muda di atas!
+                        </p>
+                    </div>
+                    <div class="void-signature">🌀 VOID SYSTEM REQUEST 🔄</div>
+                </div>
+            `;
+        });
+    }
+}
+
+function aktifkanPrankLangsung() {
+    const audio = document.getElementById('audioPrank');
+    audio.volume = 1.0;
+    audio.play();
+    tampilkanHasilVoid();
+}
+
+function tampilkanHasilVoid() {
+    // Sembunyikan kartu utama
+    document.getElementById('kartuUtama').style.display = 'none';
+    
+    // Tampilkan kartu hasil
+    document.getElementById('kartuHasil').style.display = 'block';
+    
+    // Ubah judul
+    document.title = "🎭 Void Prank Activated!";
+}
+
+// Countdown jika tidak diklik
+setTimeout(() => {
+    if (!sudahDiputar) {
+        const tombol = document.querySelector('.tombol-utama');
+        tombol.innerHTML = '<span>⏳ VOID TIMEOUT: 10s...</span><span>⚠️</span>';
+        tombol.style.background = 'linear-gradient(135deg, #ff9966 0%, #ff5e62 100%)';
+        
+        // Auto click setelah 10 detik
+        setTimeout(() => {
+            if (!sudahDiputar) {
+                tombol.click();
+            }
+        }, 10000);
+    }
+}, 20000);
+</script>
+
+</body>
+</html>
